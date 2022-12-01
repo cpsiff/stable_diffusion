@@ -1,0 +1,390 @@
+Image_19.jpeg:
+  L2: 129533.65348819588
+  PSNR: 20.232336591760436
+  SSIM: 0.5697652298809499
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_6.jpeg:
+  L2: 142131.4404169605
+  PSNR: 17.848959088022973
+  SSIM: 0.45771406442844736
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_31.jpeg:
+  L2: 131676.08414970426
+  PSNR: 17.010440958207425
+  SSIM: 0.36623816984405905
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_13.jpeg:
+  L2: 132222.5391527481
+  PSNR: 28.456186893062238
+  SSIM: 0.8134911821971925
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_8.jpeg:
+  L2: 128741.73071696683
+  PSNR: 27.944353895995174
+  SSIM: 0.8485684746521466
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_37.jpeg:
+  L2: 143647.85230556008
+  PSNR: 19.841796849689853
+  SSIM: 0.39562963296609654
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_25.jpeg:
+  L2: 141244.66009729358
+  PSNR: 20.43945824509953
+  SSIM: 0.47321194480854517
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_21.jpeg:
+  L2: 135763.17317667557
+  PSNR: 22.05137411091618
+  SSIM: 0.5915454522452053
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_7.jpeg:
+  L2: 135747.52017256152
+  PSNR: 22.609164693184262
+  SSIM: 0.627446181223856
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_16.jpeg:
+  L2: 142796.75493861898
+  PSNR: 17.970027719247703
+  SSIM: 0.46837641058585994
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_11.jpeg:
+  L2: 39707.65749827104
+  PSNR: 15.109930031788995
+  SSIM: 0.07243591458708276
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_38.jpeg:
+  L2: 145682.72522505885
+  PSNR: 17.70864556753687
+  SSIM: 0.4234431639947303
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_35.jpeg:
+  L2: 142573.59854825857
+  PSNR: 21.586988293845852
+  SSIM: 0.5937244515289037
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_3.jpeg:
+  L2: 147557.23498019337
+  PSNR: 23.65395165554764
+  SSIM: 0.5332586157242615
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_28.jpeg:
+  L2: 140014.03911751136
+  PSNR: 16.11003045576471
+  SSIM: 0.33894126108683187
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_29.jpeg:
+  L2: 133202.7285493807
+  PSNR: 16.31424835867148
+  SSIM: 0.3574790605608293
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_5.jpeg:
+  L2: 145286.88149313413
+  PSNR: 17.35498063343545
+  SSIM: 0.40546606735997337
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_2.jpeg:
+  L2: 136894.74171786147
+  PSNR: 19.509935949465536
+  SSIM: 0.5593204452674556
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_32.jpeg:
+  L2: 141962.27958158462
+  PSNR: 16.788627255862135
+  SSIM: 0.2416133340868637
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_36.jpeg:
+  L2: 139921.9703942165
+  PSNR: 24.222366940333302
+  SSIM: 0.7337633357885219
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_12.jpeg:
+  L2: 129150.85753102842
+  PSNR: 25.960874226227105
+  SSIM: 0.8371005437621266
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_4.jpeg:
+  L2: 144634.49647992002
+  PSNR: 18.549619512240167
+  SSIM: 0.5165516196366166
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_17.jpeg:
+  L2: 73591.93953824019
+  PSNR: 9.750810394557176
+  SSIM: 0.009357598615054826
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_43.jpeg:
+  L2: 137379.00632556636
+  PSNR: 22.661183730612645
+  SSIM: 0.7511851697228963
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_33.jpeg:
+  L2: 143335.86816983388
+  PSNR: 19.48951340251854
+  SSIM: 0.43634805215577316
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_39.jpeg:
+  L2: 142357.3950063712
+  PSNR: 17.976677940983514
+  SSIM: 0.45444789577126843
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_10.jpeg:
+  L2: 141761.75390069073
+  PSNR: 21.801466671810683
+  SSIM: 0.6433572411099436
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_22.jpeg:
+  L2: 147889.02838277083
+  PSNR: 21.112889443099334
+  SSIM: 0.6308497044633058
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_1.jpeg:
+  L2: 142447.6270493826
+  PSNR: 21.72025419147992
+  SSIM: 0.6015963412083852
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_41.jpeg:
+  L2: 141324.937725088
+  PSNR: 18.133663227843062
+  SSIM: 0.32520479490628657
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_27.jpeg:
+  L2: 143662.81687688016
+  PSNR: 19.783577483717863
+  SSIM: 0.3397807339891507
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_46.jpeg:
+  L2: 141991.91759392506
+  PSNR: 21.63137067055034
+  SSIM: 0.6224145037290443
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_26.jpeg:
+  L2: 138021.41739237428
+  PSNR: 20.489408704159207
+  SSIM: 0.5150201842797762
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_45.jpeg:
+  L2: 144792.80426526727
+  PSNR: 21.23388310911301
+  SSIM: 0.5666121408385135
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_42.jpeg:
+  L2: 147081.43618757604
+  PSNR: 18.77213003941013
+  SSIM: 0.5211799697443196
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_30.jpeg:
+  L2: 64602.10096428753
+  PSNR: 22.41470615285263
+  SSIM: 0.9389984128973408
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_40.jpeg:
+  L2: 142855.92329336575
+  PSNR: 21.19333196626314
+  SSIM: 0.5822383952945521
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_24.jpeg:
+  L2: 133654.03541981065
+  PSNR: 22.427834188471998
+  SSIM: 0.6649621089767087
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
+Image_48.jpeg:
+  L2: 81402.87908299066
+  PSNR: 19.189541820971336
+  SSIM: 0.8836091117778069
+  guidance_scale: 0.1
+  prompt: 4K, high definition, crisp desktop background, flickr picture of the day,
+    pic of the day, Canon DSLR
+  seed: 100
+  strength: 0.1
+
