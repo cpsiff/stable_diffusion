@@ -73,7 +73,6 @@ def ablate(transform_fn):
     i = 0
 
     for _ in range(NUM_COMBOS):
-
         prompt = random.choice(PROMPTS)
         strength = random.choice(STRENGTHS)
         guidance_scale = random.choice(GUIDANCE_SCALES)
@@ -83,13 +82,16 @@ def ablate(transform_fn):
             tf_img = transform_fn(init_img)
 
             with autocast("cuda"):
-                image = pipe(
+                result = pipe(
                     prompt=prompt,
                     init_image=tf_img,
                     strength=strength,
                     guidance_scale=guidance_scale,
                     generator=generator
-                ).images[0]
+                )
+                
+                is_nsfw = result.nsfw_content_detected()
+                image = result.images[0]
                 save_name = f"{save_dir}/{i}.png"
 
                 info = {
@@ -100,7 +102,8 @@ def ablate(transform_fn):
                         "seed": SEED,
                         "SSIM": compare_ssim(init_img, image),
                         "PSNR": cv2.PSNR(pil_to_cv2(init_img), pil_to_cv2(image)),
-                        "L2": float(np.linalg.norm(np.asarray(init_img) - np.asarray(image)))
+                        "L2": float(np.linalg.norm(np.asarray(init_img) - np.asarray(image))),
+                        "is_nsfw": is_nsfw
                     }
                 }
                 with open(f"{save_dir}/index.yaml", "a+") as f:
