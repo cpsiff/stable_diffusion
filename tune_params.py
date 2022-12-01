@@ -86,7 +86,7 @@ def ablate(transform_fn):
                                 "L2": np.linalg.norm(np.array(init_img) - np.array(image))
                             }
                         }
-                        with open(f"{OUTPUT_DIR}/index.yaml", "a+") as f:
+                        with open(f"{save_dir}/index.yaml", "a+") as f:
                             yaml.dump(info, f)
                             f.write("\n")
 
