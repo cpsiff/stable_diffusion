@@ -8,20 +8,23 @@ import cv2
 import numpy as np
 import time
 import io
+import random
 
 from diffusers import StableDiffusionImg2ImgPipeline
 
 SOURCE_DIR = "cropped_images"
-STRENGTHS = [0.1]
-GUIDANCE_SCALES = [0.1]
+STRENGTHS = [0.01, 0.05, 0.1, 0.15, 0.2, 0.3]
+GUIDANCE_SCALES = [0.01, 0.05, 0.1, 0.15, 0.2, 0.3]
 SEED = 100
 OUTPUT_DIR = "output"
+NUM_COMBOS = 100
 
 PROMPTS = [
     "4K, high definition, crisp desktop background, flickr picture of the day, pic of the day, Canon DSLR",
-#    "4K, high definition, crisp",
-#    "high definition deblurred denoised",
-#    "fast shutter speed, 4K high definition, deblurred, denoised"
+    "4K, high definition, crisp",
+    "high definition deblurred denoised",
+    "fast shutter speed, 4K high definition, deblurred, denoised",
+    ""
 ]
 
 def pil_to_cv2(pil_img):
@@ -68,42 +71,45 @@ def ablate(transform_fn):
     os.makedirs(save_dir)
 
     i = 0
-    for img_name in os.listdir(os.path.join(SOURCE_DIR)):
-        init_img = Image.open(os.path.join(SOURCE_DIR, img_name))
-        tf_img = transform_fn(init_img)
-        for strength in STRENGTHS:
-            for guidance_scale in GUIDANCE_SCALES:
-                for prompt in PROMPTS:  
-                    with autocast("cuda"):
-                        image = pipe(
-                            prompt=prompt,
-                            init_image=tf_img,
-                            strength=strength,
-                            guidance_scale=guidance_scale,
-                            generator=generator
-                        ).images[0]
-                        save_name = f"{save_dir}/{i}.png"
 
-                        print(np.linalg.norm(np.asarray(init_img) - np.asarray(image)))
+    for _ in range(NUM_COMBOS):
 
-                        info = {
-                            img_name: {
-                                "prompt": prompt,
-                                "guidance_scale": guidance_scale,
-                                "strength": strength,
-                                "seed": SEED,
-                                "SSIM": compare_ssim(init_img, image),
-                                "PSNR": cv2.PSNR(pil_to_cv2(init_img), pil_to_cv2(image)),
-                                "L2": float(np.linalg.norm(np.asarray(init_img) - np.asarray(image)))
-                            }
-                        }
-                        with open(f"{save_dir}/index.yaml", "a+") as f:
-                            yaml.dump(info, f)
-                            f.write("\n")
+        prompt = random.choice(PROMPTS)
+        strength = random.choice(STRENGTHS)
+        guidance_scale = random.choice(GUIDANCE_SCALES)
 
-                        i += 1
-                        print(save_name)
-                        image.save(save_name)
+        for img_name in os.listdir(os.path.join(SOURCE_DIR)):
+            init_img = Image.open(os.path.join(SOURCE_DIR, img_name))
+            tf_img = transform_fn(init_img)
+
+            with autocast("cuda"):
+                image = pipe(
+                    prompt=prompt,
+                    init_image=tf_img,
+                    strength=strength,
+                    guidance_scale=guidance_scale,
+                    generator=generator
+                ).images[0]
+                save_name = f"{save_dir}/{i}.png"
+
+                info = {
+                    img_name: {
+                        "prompt": prompt,
+                        "guidance_scale": guidance_scale,
+                        "strength": strength,
+                        "seed": SEED,
+                        "SSIM": compare_ssim(init_img, image),
+                        "PSNR": cv2.PSNR(pil_to_cv2(init_img), pil_to_cv2(image)),
+                        "L2": float(np.linalg.norm(np.asarray(init_img) - np.asarray(image)))
+                    }
+                }
+                with open(f"{save_dir}/index.yaml", "a+") as f:
+                    yaml.dump(info, f)
+                    f.write("\n")
+
+                i += 1
+                print(save_name)
+                image.save(save_name)
 
 if __name__ == "__main__":
     main()
