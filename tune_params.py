@@ -90,7 +90,7 @@ def ablate(transform_fn):
                     generator=generator
                 )
                 
-                is_nsfw = result.nsfw_content_detected()
+                is_nsfw = result.nsfw_content_detected
                 image = result.images[0]
                 save_name = f"{save_dir}/{i}.png"
 
