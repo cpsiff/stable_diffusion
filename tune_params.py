@@ -54,8 +54,6 @@ def ablate(transform_fn):
 
     generator = torch.Generator(device=device).manual_seed(SEED)
 
-    index = {} #store an index of prompts used for different file names
-
     i = 0
     for img_name in os.listdir(os.path.join(SOURCE_DIR)):
         init_img = Image.open(os.path.join(SOURCE_DIR, img_name))
@@ -73,7 +71,7 @@ def ablate(transform_fn):
                         ).images[0]
                         save_name = f"{OUTPUT_DIR}/{OUTPUT_DIR}_{i}.png"
 
-                        index[save_name] = {
+                        info = {
                             "prompt": prompt,
                             "guidance_scale": guidance_scale,
                             "strength": strength,
@@ -83,12 +81,12 @@ def ablate(transform_fn):
                             # "PSNR": cv2.PSNR(pil_to_cv2(init_img), pil_to_cv2(image)),
                             "L2": np.linalg.norm(np.array(init_img) - np.array(image))
                         }
+                        with open(f"{OUTPUT_DIR}/index.yaml", "a+") as f:
+                            yaml.dump(info, f)
+
                         i += 1
                         print(save_name)
                         image.save(save_name)
-
-    with open(f"{OUTPUT_DIR}/index.yaml", "w+") as f:
-        yaml.dump(index, f)
-
+                        
 if __name__ == "__main__":
     main()
