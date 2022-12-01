@@ -6,8 +6,8 @@ from PIL import Image
 from PIL import ImageOps
 import os
 
-SOURCE_DIR = "source_images"
-OUT_DIR = "cropped_images"
+SOURCE_DIR = "source_images_blur"
+OUT_DIR = "cropped_images_blur"
 WIDTH = 512
 HEIGHT = 512
 
@@ -24,7 +24,7 @@ for f in os.listdir(SOURCE_DIR):
         new_w = WIDTH
         new_h = (1/aspect)*new_w
 
-    im = im.resize((int(new_w), int(new_h)), Image.Resampling.BILINEAR)
+    im = im.resize((int(new_w), int(new_h)), Image.Resampling.BILINEAR).convert("RGB")
 
     im = ImageOps.exif_transpose(im)
 
