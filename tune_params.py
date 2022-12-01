@@ -6,6 +6,7 @@ import os
 import yaml
 import cv2
 import numpy as np
+import time
 
 from diffusers import StableDiffusionImg2ImgPipeline
 
@@ -54,6 +55,9 @@ def ablate(transform_fn):
 
     generator = torch.Generator(device=device).manual_seed(SEED)
 
+    save_dir = os.path.join(OUTPUT_DIR, time.strftime("%Y%m%d-%H%M%S"))
+    os.makedirs(save_dir)
+
     i = 0
     for img_name in os.listdir(os.path.join(SOURCE_DIR)):
         init_img = Image.open(os.path.join(SOURCE_DIR, img_name))
@@ -69,24 +73,26 @@ def ablate(transform_fn):
                             guidance_scale=guidance_scale,
                             generator=generator
                         ).images[0]
-                        save_name = f"{OUTPUT_DIR}/{OUTPUT_DIR}_{i}.png"
+                        save_name = f"{save_dir}/{i}.png"
 
                         info = {
-                            "prompt": prompt,
-                            "guidance_scale": guidance_scale,
-                            "strength": strength,
-                            "img_name": img_name,
-                            "seed": SEED,
-                            "SSIM": compare_ssim(init_img, image),
-                            # "PSNR": cv2.PSNR(pil_to_cv2(init_img), pil_to_cv2(image)),
-                            "L2": np.linalg.norm(np.array(init_img) - np.array(image))
+                            img_name: {
+                                "prompt": prompt,
+                                "guidance_scale": guidance_scale,
+                                "strength": strength,
+                                "seed": SEED,
+                                "SSIM": compare_ssim(init_img, image),
+                                # "PSNR": cv2.PSNR(pil_to_cv2(init_img), pil_to_cv2(image)),
+                                "L2": np.linalg.norm(np.array(init_img) - np.array(image))
+                            }
                         }
                         with open(f"{OUTPUT_DIR}/index.yaml", "a+") as f:
                             yaml.dump(info, f)
+                            f.write("\n")
 
                         i += 1
                         print(save_name)
                         image.save(save_name)
-                        
+
 if __name__ == "__main__":
     main()
