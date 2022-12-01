@@ -75,6 +75,8 @@ def ablate(transform_fn):
                         ).images[0]
                         save_name = f"{save_dir}/{i}.png"
 
+                        print(np.linalg.norm(np.asarray(init_img) - np.asarray(image)))
+
                         info = {
                             img_name: {
                                 "prompt": prompt,
@@ -82,8 +84,8 @@ def ablate(transform_fn):
                                 "strength": strength,
                                 "seed": SEED,
                                 "SSIM": compare_ssim(init_img, image),
-                                # "PSNR": cv2.PSNR(pil_to_cv2(init_img), pil_to_cv2(image)),
-                                "L2": np.linalg.norm(np.array(init_img) - np.array(image))
+                                "PSNR": cv2.PSNR(pil_to_cv2(init_img), pil_to_cv2(image)),
+                                "L2": float(np.linalg.norm(np.asarray(init_img) - np.asarray(image)))
                             }
                         }
                         with open(f"{save_dir}/index.yaml", "a+") as f:
