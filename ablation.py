@@ -8,17 +8,18 @@ import yaml
 
 from diffusers import StableDiffusionImg2ImgPipeline
 
-FOLDS = "JPEG", "PALETTE"
+FOLDS = ["JPEG"]
 RESIZE = 512
-STRENGTHS = [0.1]
-GUIDANCE_SCALES = [0.5, 1]
+STRENGTHS = [0.1, 0.2]
+GUIDANCE_SCALES = [0.1, 1]
 SEED = 100
 OUTPUT_DIR = "output"
 
 PROMPTS = [
-    "4K, high definition, crisp desktop background",
+    "4K, high definition, crisp desktop background, flickr picture of the day, pic of the day, Canon DSLR",
     "4K, high definition, crisp",
     "high definition deblurred denoised",
+#    "fast shutter speed, 4K high definition, deblurred, denoised"
 ]
 
 device = "cuda"
@@ -71,5 +72,5 @@ for fold_name in FOLDS:
                         print(save_name)
                         image.save(save_name)
 
-with open(f"{OUTPUT_DIR}/index.yaml") as f:
+with open(f"{OUTPUT_DIR}/index.yaml", "w+") as f:
     yaml.dump(index, f)
