@@ -7,6 +7,7 @@ import yaml
 import cv2
 import numpy as np
 import time
+import io
 
 from diffusers import StableDiffusionImg2ImgPipeline
 
@@ -31,11 +32,19 @@ def pil_to_cv2(pil_img):
     return(arr[:, :, ::-1].copy())
 
 
-def quantize(img, colors=12):
+def quantize(img, colors=16):
     """Take PIL image as input and return quantized one
     """
 
     return img.quantize(colors=colors).convert("RGB")
+
+def convert_to_jpg(img, qual):
+    with io.BytesIO() as output:
+        img.save(output, format="jpeg", quality=qual, subsampling=0)
+        contents = output.getvalue()
+
+    converted_img = Image.open(io.BytesIO(contents))
+    return converted_img
 
 def main():
     ablate(quantize)
