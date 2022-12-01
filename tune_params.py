@@ -10,15 +10,15 @@ import numpy as np
 from diffusers import StableDiffusionImg2ImgPipeline
 
 SOURCE_DIR = "cropped_images"
-STRENGTHS = [0.1, 0.2]
-GUIDANCE_SCALES = [0.1, 1]
+STRENGTHS = [0.1]
+GUIDANCE_SCALES = [0.1]
 SEED = 100
 OUTPUT_DIR = "output"
 
 PROMPTS = [
     "4K, high definition, crisp desktop background, flickr picture of the day, pic of the day, Canon DSLR",
-    "4K, high definition, crisp",
-    "high definition deblurred denoised",
+#    "4K, high definition, crisp",
+#    "high definition deblurred denoised",
 #    "fast shutter speed, 4K high definition, deblurred, denoised"
 ]
 
@@ -34,7 +34,7 @@ def quantize(img, colors=12):
     """Take PIL image as input and return quantized one
     """
 
-    return img.quantize(colors=colors)
+    return img.quantize(colors=colors).convert("RGB")
 
 def main():
     ablate(quantize)
@@ -80,7 +80,7 @@ def ablate(transform_fn):
                             "img_name": img_name,
                             "seed": SEED,
                             "SSIM": compare_ssim(init_img, image),
-                            "PSNR": cv2.PSNR(pil_to_cv2(init_img), pil_to_cv2(image)),
+                            # "PSNR": cv2.PSNR(pil_to_cv2(init_img), pil_to_cv2(image)),
                             "L2": np.linalg.norm(np.array(init_img) - np.array(image))
                         }
                         i += 1
