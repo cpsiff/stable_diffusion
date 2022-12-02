@@ -1,3 +1,6 @@
 output/
 source_images/
 source_images_blur/
+results.txt
+index.yaml
+baseline/
