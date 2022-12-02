@@ -1,6 +1,8 @@
 import yaml
 import pandas as pd
 
+pd.options.display.max_colwidth = 150
+
 # INDEX_FILE = "baseline/20221202-132509/index.yaml"
 INDEX_FILE = "index.yaml"
 
@@ -22,6 +24,6 @@ df = df.loc[df['is_nsfw'] == "[False]"]
 df["parameters"] = df["guidance_scale"].astype(str) + "-" + df["prompt"] + "-" + df["seed"].astype(str) + "-" + df["strength"].astype(str)
 df = df.drop(columns=["prompt", "guidance_scale", "seed", "strength"])
 
-df = df.groupby("parameters").mean().sort_values(by="SSIM")
+df = df.groupby("parameters").mean().sort_values(by="SSIM", ascending=False)
 
 print(df)

@@ -13,8 +13,8 @@ import random
 from diffusers import StableDiffusionImg2ImgPipeline
 
 SOURCE_DIR = "cropped_images"
-STRENGTHS = [0.01, 0.05, 0.1, 0.15, 0.2, 0.3]
-GUIDANCE_SCALES = [0.01, 0.05, 0.1, 0.15, 0.2, 0.3]
+STRENGTHS = [0.001, 0.005, 0.01]
+GUIDANCE_SCALES = [0.001, 0.005, 0.01]
 SEED = 100
 OUTPUT_DIR = "output"
 NUM_COMBOS = 100
@@ -23,7 +23,8 @@ PROMPTS = [
     "4K, high definition, crisp desktop background, flickr picture of the day, pic of the day, Canon DSLR",
     "4K, high definition, crisp",
     "high definition deblurred denoised",
-    "fast shutter speed, 4K high definition, deblurred, denoised",
+    "gradient, smooth high quality image, CGI render"
+    "high quality, high resolution image"
     ""
 ]
 
@@ -50,7 +51,7 @@ def convert_to_jpg(img, qual=10):
     return converted_img
 
 def main():
-    ablate(convert_to_jpg)
+    ablate(quantize)
 
 
 def ablate(transform_fn):
