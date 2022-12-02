@@ -41,7 +41,7 @@ def quantize(img, colors=16):
 
     return img.quantize(colors=colors).convert("RGB")
 
-def convert_to_jpg(img, qual):
+def convert_to_jpg(img, qual=10):
     with io.BytesIO() as output:
         img.save(output, format="jpeg", quality=qual, subsampling=0)
         contents = output.getvalue()
@@ -50,7 +50,7 @@ def convert_to_jpg(img, qual):
     return converted_img
 
 def main():
-    ablate(quantize)
+    ablate(convert_to_jpg)
 
 
 def ablate(transform_fn):
