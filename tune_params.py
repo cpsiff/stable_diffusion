@@ -20,12 +20,13 @@ OUTPUT_DIR = "output"
 NUM_COMBOS = 100
 
 PROMPTS = [
-    "4K, high definition, crisp desktop background, flickr picture of the day, pic of the day, Canon DSLR",
-    "4K, high definition, crisp",
-    "high definition deblurred denoised",
-    "gradient, smooth high quality image, CGI render"
-    "high quality, high resolution image"
-    ""
+    # "4K, high definition, crisp desktop background, flickr picture of the day, pic of the day, Canon DSLR",
+    # "4K, high definition, crisp",
+    # "high definition deblurred denoised",
+    # "gradient, smooth high quality image, CGI render"
+    # "high quality, high resolution image"
+    # ""
+    "shot on iPhone, 4K, high quality"
 ]
 
 def pil_to_cv2(pil_img):

@@ -8,7 +8,6 @@ import cv2
 import numpy as np
 import time
 import io
-import random
 
 from diffusers import StableDiffusionImg2ImgPipeline
 
@@ -94,7 +93,7 @@ def vary_params(transform_fn):
                             "guidance_scale": guidance_scale,
                             "strength": strength,
                             "seed": SEED,
-                            "SSIM": compare_ssim(init_img, image),
+                            "SSIM": compare_ssim(init_img, image)[0],
                             "PSNR": cv2.PSNR(pil_to_cv2(init_img), pil_to_cv2(image)),
                             "L2": float(np.linalg.norm(np.asarray(init_img) - np.asarray(image))),
                             "is_nsfw": is_nsfw
