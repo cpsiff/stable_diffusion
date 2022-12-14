@@ -4,7 +4,8 @@ import pandas as pd
 pd.options.display.max_colwidth = 150
 
 # INDEX_FILE = "baseline/20221202-132509/index.yaml"
-INDEX_FILE = "index.yaml"
+INDEX_FILE = "/home/carter/repos/stable-diffusion/baseline/20221205-110225/index.yaml"
+# INDEX_FILE = "index.yaml"
 
 # load metrics in from yaml file
 with open(INDEX_FILE, 'r') as f:

@@ -1,0 +1,61 @@
+import yaml
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+plt.style.use('seaborn')
+
+pd.options.display.max_colwidth = 150
+
+INDEX_FILE = "vary_strength_jpeg.yaml"
+
+# load metrics in from yaml file
+with open(INDEX_FILE, 'r') as f:
+    index = []
+    f_str = f.read()
+    for chunk in f_str.split("\n\n"):
+        if chunk.rstrip() != "":
+            chunk_dict = yaml.safe_load(chunk)
+            index.append(chunk_dict[list(chunk_dict.keys())[0]])
+
+df = pd.DataFrame(index)
+
+df['is_nsfw'] = df['is_nsfw'].astype("string")
+
+df = df.loc[df['is_nsfw'] == "[False]"]
+
+# df["parameters"] = df["guidance_scale"].astype(str) + "-" + df["prompt"] + "-" + df["seed"].astype(str) + "-" + df["strength"].astype(str)
+# df = df.drop(columns=["prompt", "guidance_scale", "seed", "strength"])
+
+# df = df.groupby("parameters").mean().sort_values(by="SSIM", ascending=False)
+
+# print(df)
+
+zero = pd.DataFrame([{
+    "L2": 0,
+    "PSNR": 1.0,
+    "SSIM": 0.799,
+    "guidance_scale": 10,
+    "is_nsfw": [False],
+    "negative_prompt": "GIF, quantized, posterized",
+    "prompt": "shot on iPhone, 4K, high quality",
+    "seed": 100,
+    "strength": 0.0
+}]*50)
+
+df = pd.concat([df, zero], ignore_index=True)
+
+fig, ax = plt.subplots()
+fig.set_size_inches(6, 4)
+sns.lineplot(df, ax=ax, x="strength", y="SSIM")
+
+ax.set_xlabel("Diffusion Strength", size=12)
+ax.set_ylabel("Average SSIM", size=12)
+# ax.set_title("Effect of Diffusion Strength on SSIM - JPEG Compression\nGuidance Scale Fixed at 10")
+ax.set_ylim(0, 1.0)
+ax.plot([0, 0.5], [0.799, 0.799], ls="--", c="gray") # doing nothing at all
+ax.plot([0, 0.5], [0.821, 0.821], ls="--", c="green") # state-of-the-art
+
+plt.tight_layout()
+plt.savefig("vary_strength_jpeg.pdf", dpi=500)
+plt.show()
